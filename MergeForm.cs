@@ -5,6 +5,7 @@ public class MergeForm : Form
     private ListBox pdfListBox = new ListBox();
     private Button addButton = new Button();
     private Button removeButton = new Button();
+    private Label inFormMessage = new Label();
     public MergeForm()
     {
         //UI for Form
@@ -26,9 +27,14 @@ public class MergeForm : Form
         removeButton.Location = new Point(170, 250);
         removeButton.Size = new Size(140,32);
 
+        inFormMessage.Location = new Point(20, 300);
+        inFormMessage.Size = new Size(430, 60);
+        //inFormMessage.ForeColor = Color.Red;
+
         Controls.Add(pdfListBox);
         Controls.Add(addButton);
         Controls.Add(removeButton);
+        Controls.Add(inFormMessage);
 
         addButton.Click += addButton_Click;
         removeButton.Click += removeButton_Click;
@@ -60,7 +66,9 @@ public class MergeForm : Form
         }
         else
         {
-            MessageBox.Show("Select a file first.");
+            //MessageBox.Show("Select a file first.")
+            inFormMessage.Text = "Select a file first.";
+            inFormMessage.ForeColor = Color.Red;
         }
     }
 }
